@@ -7,26 +7,26 @@ This study analyzes the accuracy of cryptocurrency price data for BTC and ETH ob
 For each day and for each token (BTC, ETH), we collected values for **opening price (open)** and **closing price (close)**. The data were merged based on token and date, and then absolute and relative deviations were calculated between Coingecko and 1inch values:
 
 #### 2.1 Absolute Deviation Calculation
-\[
-\text{diff}_{x} = x_{CG} - x_{1inch}
-\]
+```
+diff_x = x_CG - x_1inch
+```
 where:
-- \( x_{CG} \) — value of the parameter (open, high, low, close) from Coingecko
-- \( x_{1inch} \) — value of the parameter from 1inch
-- \( \text{diff}_{x} \) — difference between values
+- `x_CG` — value of the parameter (open, high, low, close) from Coingecko
+- `x_1inch` — value of the parameter from 1inch
+- `diff_x` — difference between values
 
 #### 2.2 Relative Deviation Calculation (MAPE)
-\[
-\text{perc\_diff}_{x} = \frac{ |x_{CG} - x_{1inch}| }{ x_{1inch} } \times 100\%
-\]
+```
+perc_diff_x = abs(x_CG - x_1inch) / x_1inch * 100%
+```
 The Mean Absolute Percentage Error (**MAPE**) is calculated as the average of the absolute deviations:
-\[
-\text{MAPE} = \frac{1}{N} \sum_{i=1}^{N} \frac{ |x_{CG,i} - x_{1inch,i}| }{ x_{1inch,i} } \times 100\%
-\]
-where \( N \) is the number of dates for each token.
+```
+MAPE = (1/N) * sum(|x_CG,i - x_1inch,i| / x_1inch,i * 100%)
+```
+where `N` is the number of dates for each token.
 
 ### 3. Results
-After analyzing the data, the following average MAPE values were obtained:
+After analyzing the data with **a one-day forward shift** (to reduce discrepancies due to timing differences), the following average MAPE values were obtained:
 
 #### BTC:
 - **Open:** 0.23% ± 0.02%
