@@ -38,3 +38,6 @@ After analyzing the data with **a one-day forward shift** (to reduce discrepanci
 
 ### 4. Conclusion
 The average price deviation between sources was **0.2-0.3%**, which is within acceptable limits for portfolio analysis. The confidence interval indicates that discrepancies are consistently low. This confirms that 1inch data can be used without significant adjustments.
+
+### 5. Source Code
+Python script [comparison.py](https://github.com/1inch/portfolio-price-comparison/blob/main/comparison.py) with the analysis code is provided for reproducibility and audit verification.
